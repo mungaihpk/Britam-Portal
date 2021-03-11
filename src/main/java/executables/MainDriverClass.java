@@ -74,15 +74,6 @@ public class MainDriverClass {
 
 			count = count + 1;
 		}
-
-
-		Options opt = new OptionsBuilder()
-				.include(MainDriverClass.class.getSimpleName())
-				.forks(1)
-				.build();
-
-		new Runner(opt).run();
-		
 	}
 
 	@Setup

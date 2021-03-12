@@ -159,7 +159,7 @@ public class MainDriverClass{
 		wait = new WebDriverWait(driver,10,1);
 	}
 
-	@Threads(5)
+	@Threads(3)
 	@Benchmark
 	@BenchmarkMode(Mode.All)
 	public static boolean testLogin() throws IOException {
@@ -170,6 +170,9 @@ public class MainDriverClass{
 		Pair<String, String> user;
 		String username = user_entry[2];
 		String password  = user_entry[3];
+
+		System.out.println(username+"  - -  "+password);
+		count = count +1;
 
 		initializeDriver();
 		login = new Login(driver);

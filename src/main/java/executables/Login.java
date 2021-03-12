@@ -33,8 +33,9 @@ public class Login {
 	public void login(String username, String password) {
 		LoginPageElements loginPageElements = new LoginPageElements(driver);
 		//driver.get(urls.getLoginUrl());
-		driver.get(urls.getFaConnectUrl());
-		WebDriverWait wait = new WebDriverWait(driver, 100);
+		//driver.get(urls.getFaConnectUrl());
+		driver.get("https://faconnectuat.britam.com/web/financial-advisor-portal/login?p_p_id=com_liferay_login_web_portlet_LoginPortlet&p_p_lifecycle=0&_com_liferay_login_web_portlet_LoginPortlet_redirect=%2Fgroup%2Ffinancial-advisor-portal%2Fhome");
+		WebDriverWait wait = new WebDriverWait(driver, 200);
 		wait.until(ExpectedConditions.elementToBeClickable(loginPageElements.getLoginButton()));
 		
 		username_textbox = loginPageElements.getUsernameTextbox();
@@ -47,6 +48,8 @@ public class Login {
 		username_textbox.sendKeys(username);
 		password_textbox.sendKeys(password);
 		login_btn.click();
+
+		System.out.println(username+"  - -  "+password);
 		
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(
 				"//*/div[@class='navbar' and @id='navbar_com_liferay_site_navigation_menu_web_portlet_SiteNavigationMenuPortlet']/ul[@role='menubar']/li/a/span[text()=' Proposals ']")));

@@ -16,6 +16,8 @@ import org.openjdk.jmh.runner.RunnerException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import elements.HomePageElements;
@@ -145,15 +147,19 @@ public class MainDriverClass{
 
 	}
 
-	
-	//@Setup
+
+	//@TearDown @Setup
 	public static void initializeDriver() {
-		System.setProperty("webdriver.chrome.driver", "chromedriver\\chromedriver.exe");
+		//System.setProperty("webdriver.chrome.driver", "chromedriver\\chromedriver.exe");
+		System.setProperty("webdriver.gecko.driver", "firefoxdriver\\geckodriver.exe");
 		ChromeOptions options = new ChromeOptions();
 		options.setAcceptInsecureCerts(true);
 		//options.setHeadless(true);
 		
-		driver = new ChromeDriver(options);
+		//driver = new ChromeDriver(options);
+		FirefoxOptions firefoxOptions = new FirefoxOptions();
+		firefoxOptions.setAcceptInsecureCerts(true);
+		driver = new FirefoxDriver(firefoxOptions);
 		driver.manage().window().maximize();
 		
 		wait = new WebDriverWait(driver,10,1);
@@ -163,20 +169,26 @@ public class MainDriverClass{
 	@Benchmark
 	@BenchmarkMode(Mode.All)
 	public static boolean testLogin() throws IOException {
-
-		String line = Files.readAllLines(Paths.get("users/users.csv")).get(count+1);
-
-		String[] user_entry = line.split(",");
-		Pair<String, String> user;
-		String username = user_entry[2];
-		String password  = user_entry[3];
-
-		System.out.println(username+"  - -  "+password);
-		count = count +1;
-
 		initializeDriver();
 		login = new Login(driver);
+
+		//String line = Files.readAllLines(Paths.get("users/users.csv")).get(count+1);
+
+		//String[] user_entry = line.split(",");
+		//Pair<String, String> user;
+		//String username = user_entry[2];
+		//String password  = user_entry[3];
+
+		Pair<String, String> user = users.get(count);
+		String username = user.getKey();
+		String password = user.getValue();
+
+		count = count +1;
+		System.out.println(username+"  - -  "+password);
+
+
 		login.login(username, password);
+
 
 		driver.close();
 

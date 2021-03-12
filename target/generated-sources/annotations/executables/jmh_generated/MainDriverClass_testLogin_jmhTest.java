@@ -68,24 +68,24 @@ public final class MainDriverClass_testLogin_jmhTest {
         }
         if (threadParams.getSubgroupIndex() == 0) {
             RawResults res = new RawResults();
-            MainDriverClass_jmhType l_maindriverclass0_G = _jmh_tryInit_f_maindriverclass0_G(control);
+            MainDriverClass_jmhType l_maindriverclass0_0 = _jmh_tryInit_f_maindriverclass0_0(control);
 
             control.preSetup();
 
 
             control.announceWarmupReady();
             while (control.warmupShouldWait) {
-                l_maindriverclass0_G.testLogin();
+                blackhole.consume(l_maindriverclass0_0.testLogin());
                 res.allOps++;
             }
 
             notifyControl.startMeasurement = true;
-            testLogin_thrpt_jmhStub(control, res, benchmarkParams, iterationParams, threadParams, blackhole, notifyControl, startRndMask, l_maindriverclass0_G);
+            testLogin_thrpt_jmhStub(control, res, benchmarkParams, iterationParams, threadParams, blackhole, notifyControl, startRndMask, l_maindriverclass0_0);
             notifyControl.stopMeasurement = true;
             control.announceWarmdownReady();
             try {
                 while (control.warmdownShouldWait) {
-                    l_maindriverclass0_G.testLogin();
+                    blackhole.consume(l_maindriverclass0_0.testLogin());
                     res.allOps++;
                 }
                 control.preTearDown();
@@ -94,30 +94,7 @@ public final class MainDriverClass_testLogin_jmhTest {
             }
 
             if (control.isLastIteration()) {
-                if (MainDriverClass_jmhType.tearTrialMutexUpdater.compareAndSet(l_maindriverclass0_G, 0, 1)) {
-                    try {
-                        if (control.isFailing) throw new FailureAssistException();
-                        if (l_maindriverclass0_G.readyTrial) {
-                            l_maindriverclass0_G.readyTrial = false;
-                        }
-                    } catch (Throwable t) {
-                        control.isFailing = true;
-                        throw t;
-                    } finally {
-                        MainDriverClass_jmhType.tearTrialMutexUpdater.set(l_maindriverclass0_G, 0);
-                    }
-                } else {
-                    long l_maindriverclass0_G_backoff = 1;
-                    while (MainDriverClass_jmhType.tearTrialMutexUpdater.get(l_maindriverclass0_G) == 1) {
-                        TimeUnit.MILLISECONDS.sleep(l_maindriverclass0_G_backoff);
-                        l_maindriverclass0_G_backoff = Math.max(1024, l_maindriverclass0_G_backoff * 2);
-                        if (control.isFailing) throw new FailureAssistException();
-                        if (Thread.interrupted()) throw new InterruptedException();
-                    }
-                }
-                synchronized(this.getClass()) {
-                    f_maindriverclass0_G = null;
-                }
+                f_maindriverclass0_0 = null;
             }
             res.allOps += res.measuredOps;
             int batchSize = iterationParams.getBatchSize();
@@ -134,12 +111,12 @@ public final class MainDriverClass_testLogin_jmhTest {
             throw new IllegalStateException("Harness failed to distribute threads among groups properly");
     }
 
-    public static void testLogin_thrpt_jmhStub(InfraControl control, RawResults result, BenchmarkParams benchmarkParams, IterationParams iterationParams, ThreadParams threadParams, Blackhole blackhole, Control notifyControl, int startRndMask, MainDriverClass_jmhType l_maindriverclass0_G) throws Throwable {
+    public static void testLogin_thrpt_jmhStub(InfraControl control, RawResults result, BenchmarkParams benchmarkParams, IterationParams iterationParams, ThreadParams threadParams, Blackhole blackhole, Control notifyControl, int startRndMask, MainDriverClass_jmhType l_maindriverclass0_0) throws Throwable {
         long operations = 0;
         long realTime = 0;
         result.startTime = System.nanoTime();
         do {
-            l_maindriverclass0_G.testLogin();
+            blackhole.consume(l_maindriverclass0_0.testLogin());
             operations++;
         } while(!control.isDone);
         result.stopTime = System.nanoTime();
@@ -158,24 +135,24 @@ public final class MainDriverClass_testLogin_jmhTest {
         }
         if (threadParams.getSubgroupIndex() == 0) {
             RawResults res = new RawResults();
-            MainDriverClass_jmhType l_maindriverclass0_G = _jmh_tryInit_f_maindriverclass0_G(control);
+            MainDriverClass_jmhType l_maindriverclass0_0 = _jmh_tryInit_f_maindriverclass0_0(control);
 
             control.preSetup();
 
 
             control.announceWarmupReady();
             while (control.warmupShouldWait) {
-                l_maindriverclass0_G.testLogin();
+                blackhole.consume(l_maindriverclass0_0.testLogin());
                 res.allOps++;
             }
 
             notifyControl.startMeasurement = true;
-            testLogin_avgt_jmhStub(control, res, benchmarkParams, iterationParams, threadParams, blackhole, notifyControl, startRndMask, l_maindriverclass0_G);
+            testLogin_avgt_jmhStub(control, res, benchmarkParams, iterationParams, threadParams, blackhole, notifyControl, startRndMask, l_maindriverclass0_0);
             notifyControl.stopMeasurement = true;
             control.announceWarmdownReady();
             try {
                 while (control.warmdownShouldWait) {
-                    l_maindriverclass0_G.testLogin();
+                    blackhole.consume(l_maindriverclass0_0.testLogin());
                     res.allOps++;
                 }
                 control.preTearDown();
@@ -184,30 +161,7 @@ public final class MainDriverClass_testLogin_jmhTest {
             }
 
             if (control.isLastIteration()) {
-                if (MainDriverClass_jmhType.tearTrialMutexUpdater.compareAndSet(l_maindriverclass0_G, 0, 1)) {
-                    try {
-                        if (control.isFailing) throw new FailureAssistException();
-                        if (l_maindriverclass0_G.readyTrial) {
-                            l_maindriverclass0_G.readyTrial = false;
-                        }
-                    } catch (Throwable t) {
-                        control.isFailing = true;
-                        throw t;
-                    } finally {
-                        MainDriverClass_jmhType.tearTrialMutexUpdater.set(l_maindriverclass0_G, 0);
-                    }
-                } else {
-                    long l_maindriverclass0_G_backoff = 1;
-                    while (MainDriverClass_jmhType.tearTrialMutexUpdater.get(l_maindriverclass0_G) == 1) {
-                        TimeUnit.MILLISECONDS.sleep(l_maindriverclass0_G_backoff);
-                        l_maindriverclass0_G_backoff = Math.max(1024, l_maindriverclass0_G_backoff * 2);
-                        if (control.isFailing) throw new FailureAssistException();
-                        if (Thread.interrupted()) throw new InterruptedException();
-                    }
-                }
-                synchronized(this.getClass()) {
-                    f_maindriverclass0_G = null;
-                }
+                f_maindriverclass0_0 = null;
             }
             res.allOps += res.measuredOps;
             int batchSize = iterationParams.getBatchSize();
@@ -224,12 +178,12 @@ public final class MainDriverClass_testLogin_jmhTest {
             throw new IllegalStateException("Harness failed to distribute threads among groups properly");
     }
 
-    public static void testLogin_avgt_jmhStub(InfraControl control, RawResults result, BenchmarkParams benchmarkParams, IterationParams iterationParams, ThreadParams threadParams, Blackhole blackhole, Control notifyControl, int startRndMask, MainDriverClass_jmhType l_maindriverclass0_G) throws Throwable {
+    public static void testLogin_avgt_jmhStub(InfraControl control, RawResults result, BenchmarkParams benchmarkParams, IterationParams iterationParams, ThreadParams threadParams, Blackhole blackhole, Control notifyControl, int startRndMask, MainDriverClass_jmhType l_maindriverclass0_0) throws Throwable {
         long operations = 0;
         long realTime = 0;
         result.startTime = System.nanoTime();
         do {
-            l_maindriverclass0_G.testLogin();
+            blackhole.consume(l_maindriverclass0_0.testLogin());
             operations++;
         } while(!control.isDone);
         result.stopTime = System.nanoTime();
@@ -248,14 +202,14 @@ public final class MainDriverClass_testLogin_jmhTest {
         }
         if (threadParams.getSubgroupIndex() == 0) {
             RawResults res = new RawResults();
-            MainDriverClass_jmhType l_maindriverclass0_G = _jmh_tryInit_f_maindriverclass0_G(control);
+            MainDriverClass_jmhType l_maindriverclass0_0 = _jmh_tryInit_f_maindriverclass0_0(control);
 
             control.preSetup();
 
 
             control.announceWarmupReady();
             while (control.warmupShouldWait) {
-                l_maindriverclass0_G.testLogin();
+                blackhole.consume(l_maindriverclass0_0.testLogin());
                 res.allOps++;
             }
 
@@ -264,12 +218,12 @@ public final class MainDriverClass_testLogin_jmhTest {
             int batchSize = iterationParams.getBatchSize();
             int opsPerInv = benchmarkParams.getOpsPerInvocation();
             SampleBuffer buffer = new SampleBuffer();
-            testLogin_sample_jmhStub(control, res, benchmarkParams, iterationParams, threadParams, blackhole, notifyControl, startRndMask, buffer, targetSamples, opsPerInv, batchSize, l_maindriverclass0_G);
+            testLogin_sample_jmhStub(control, res, benchmarkParams, iterationParams, threadParams, blackhole, notifyControl, startRndMask, buffer, targetSamples, opsPerInv, batchSize, l_maindriverclass0_0);
             notifyControl.stopMeasurement = true;
             control.announceWarmdownReady();
             try {
                 while (control.warmdownShouldWait) {
-                    l_maindriverclass0_G.testLogin();
+                    blackhole.consume(l_maindriverclass0_0.testLogin());
                     res.allOps++;
                 }
                 control.preTearDown();
@@ -278,30 +232,7 @@ public final class MainDriverClass_testLogin_jmhTest {
             }
 
             if (control.isLastIteration()) {
-                if (MainDriverClass_jmhType.tearTrialMutexUpdater.compareAndSet(l_maindriverclass0_G, 0, 1)) {
-                    try {
-                        if (control.isFailing) throw new FailureAssistException();
-                        if (l_maindriverclass0_G.readyTrial) {
-                            l_maindriverclass0_G.readyTrial = false;
-                        }
-                    } catch (Throwable t) {
-                        control.isFailing = true;
-                        throw t;
-                    } finally {
-                        MainDriverClass_jmhType.tearTrialMutexUpdater.set(l_maindriverclass0_G, 0);
-                    }
-                } else {
-                    long l_maindriverclass0_G_backoff = 1;
-                    while (MainDriverClass_jmhType.tearTrialMutexUpdater.get(l_maindriverclass0_G) == 1) {
-                        TimeUnit.MILLISECONDS.sleep(l_maindriverclass0_G_backoff);
-                        l_maindriverclass0_G_backoff = Math.max(1024, l_maindriverclass0_G_backoff * 2);
-                        if (control.isFailing) throw new FailureAssistException();
-                        if (Thread.interrupted()) throw new InterruptedException();
-                    }
-                }
-                synchronized(this.getClass()) {
-                    f_maindriverclass0_G = null;
-                }
+                f_maindriverclass0_0 = null;
             }
             res.allOps += res.measuredOps * batchSize;
             res.allOps *= opsPerInv;
@@ -315,7 +246,7 @@ public final class MainDriverClass_testLogin_jmhTest {
             throw new IllegalStateException("Harness failed to distribute threads among groups properly");
     }
 
-    public static void testLogin_sample_jmhStub(InfraControl control, RawResults result, BenchmarkParams benchmarkParams, IterationParams iterationParams, ThreadParams threadParams, Blackhole blackhole, Control notifyControl, int startRndMask, SampleBuffer buffer, int targetSamples, long opsPerInv, int batchSize, MainDriverClass_jmhType l_maindriverclass0_G) throws Throwable {
+    public static void testLogin_sample_jmhStub(InfraControl control, RawResults result, BenchmarkParams benchmarkParams, IterationParams iterationParams, ThreadParams threadParams, Blackhole blackhole, Control notifyControl, int startRndMask, SampleBuffer buffer, int targetSamples, long opsPerInv, int batchSize, MainDriverClass_jmhType l_maindriverclass0_0) throws Throwable {
         long realTime = 0;
         long operations = 0;
         int rnd = (int)System.nanoTime();
@@ -330,7 +261,7 @@ public final class MainDriverClass_testLogin_jmhTest {
             }
             for (int b = 0; b < batchSize; b++) {
                 if (control.volatileSpoiler) return;
-                l_maindriverclass0_G.testLogin();
+                blackhole.consume(l_maindriverclass0_0.testLogin());
             }
             if (sample) {
                 buffer.add((System.nanoTime() - time) / opsPerInv);
@@ -357,7 +288,7 @@ public final class MainDriverClass_testLogin_jmhTest {
             this.blackhole = new Blackhole("Today's password is swordfish. I understand instantiating Blackholes directly is dangerous.");
         }
         if (threadParams.getSubgroupIndex() == 0) {
-            MainDriverClass_jmhType l_maindriverclass0_G = _jmh_tryInit_f_maindriverclass0_G(control);
+            MainDriverClass_jmhType l_maindriverclass0_0 = _jmh_tryInit_f_maindriverclass0_0(control);
 
             control.preSetup();
 
@@ -365,34 +296,11 @@ public final class MainDriverClass_testLogin_jmhTest {
             notifyControl.startMeasurement = true;
             RawResults res = new RawResults();
             int batchSize = iterationParams.getBatchSize();
-            testLogin_ss_jmhStub(control, res, benchmarkParams, iterationParams, threadParams, blackhole, notifyControl, startRndMask, batchSize, l_maindriverclass0_G);
+            testLogin_ss_jmhStub(control, res, benchmarkParams, iterationParams, threadParams, blackhole, notifyControl, startRndMask, batchSize, l_maindriverclass0_0);
             control.preTearDown();
 
             if (control.isLastIteration()) {
-                if (MainDriverClass_jmhType.tearTrialMutexUpdater.compareAndSet(l_maindriverclass0_G, 0, 1)) {
-                    try {
-                        if (control.isFailing) throw new FailureAssistException();
-                        if (l_maindriverclass0_G.readyTrial) {
-                            l_maindriverclass0_G.readyTrial = false;
-                        }
-                    } catch (Throwable t) {
-                        control.isFailing = true;
-                        throw t;
-                    } finally {
-                        MainDriverClass_jmhType.tearTrialMutexUpdater.set(l_maindriverclass0_G, 0);
-                    }
-                } else {
-                    long l_maindriverclass0_G_backoff = 1;
-                    while (MainDriverClass_jmhType.tearTrialMutexUpdater.get(l_maindriverclass0_G) == 1) {
-                        TimeUnit.MILLISECONDS.sleep(l_maindriverclass0_G_backoff);
-                        l_maindriverclass0_G_backoff = Math.max(1024, l_maindriverclass0_G_backoff * 2);
-                        if (control.isFailing) throw new FailureAssistException();
-                        if (Thread.interrupted()) throw new InterruptedException();
-                    }
-                }
-                synchronized(this.getClass()) {
-                    f_maindriverclass0_G = null;
-                }
+                f_maindriverclass0_0 = null;
             }
             int opsPerInv = control.benchmarkParams.getOpsPerInvocation();
             long totalOps = opsPerInv;
@@ -404,41 +312,26 @@ public final class MainDriverClass_testLogin_jmhTest {
             throw new IllegalStateException("Harness failed to distribute threads among groups properly");
     }
 
-    public static void testLogin_ss_jmhStub(InfraControl control, RawResults result, BenchmarkParams benchmarkParams, IterationParams iterationParams, ThreadParams threadParams, Blackhole blackhole, Control notifyControl, int startRndMask, int batchSize, MainDriverClass_jmhType l_maindriverclass0_G) throws Throwable {
+    public static void testLogin_ss_jmhStub(InfraControl control, RawResults result, BenchmarkParams benchmarkParams, IterationParams iterationParams, ThreadParams threadParams, Blackhole blackhole, Control notifyControl, int startRndMask, int batchSize, MainDriverClass_jmhType l_maindriverclass0_0) throws Throwable {
         long realTime = 0;
         result.startTime = System.nanoTime();
         for (int b = 0; b < batchSize; b++) {
             if (control.volatileSpoiler) return;
-            l_maindriverclass0_G.testLogin();
+            blackhole.consume(l_maindriverclass0_0.testLogin());
         }
         result.stopTime = System.nanoTime();
         result.realTime = realTime;
     }
 
     
-    static volatile MainDriverClass_jmhType f_maindriverclass0_G;
+    MainDriverClass_jmhType f_maindriverclass0_0;
     
-    MainDriverClass_jmhType _jmh_tryInit_f_maindriverclass0_G(InfraControl control) throws Throwable {
-        MainDriverClass_jmhType val = f_maindriverclass0_G;
-        if (val != null) {
-            return val;
-        }
-        synchronized(this.getClass()) {
-            try {
-            if (control.isFailing) throw new FailureAssistException();
-            val = f_maindriverclass0_G;
-            if (val != null) {
-                return val;
-            }
+    MainDriverClass_jmhType _jmh_tryInit_f_maindriverclass0_0(InfraControl control) throws Throwable {
+        if (control.isFailing) throw new FailureAssistException();
+        MainDriverClass_jmhType val = f_maindriverclass0_0;
+        if (val == null) {
             val = new MainDriverClass_jmhType();
-            val.initializeDriver();
-            val.readUsers();
-            val.readyTrial = true;
-            f_maindriverclass0_G = val;
-            } catch (Throwable t) {
-                control.isFailing = true;
-                throw t;
-            }
+            f_maindriverclass0_0 = val;
         }
         return val;
     }

@@ -16,7 +16,4 @@ public class MainDriverClass_jmhType_B2 extends MainDriverClass_jmhType_B1 {
     public final static AtomicIntegerFieldUpdater<MainDriverClass_jmhType_B2> setupInvocationMutexUpdater = AtomicIntegerFieldUpdater.newUpdater(MainDriverClass_jmhType_B2.class, "setupInvocationMutex");
     public final static AtomicIntegerFieldUpdater<MainDriverClass_jmhType_B2> tearInvocationMutexUpdater = AtomicIntegerFieldUpdater.newUpdater(MainDriverClass_jmhType_B2.class, "tearInvocationMutex");
 
-    public volatile boolean readyTrial;
-    public volatile boolean readyIteration;
-    public volatile boolean readyInvocation;
 }
